@@ -1,0 +1,130 @@
+2025-04-06 17:34:14,020 - INFO - GoogleScraper initialized
+2025-04-06 17:34:14,020 - INFO - Starting scraping process for query: best hairdryers
+2025-04-06 17:34:14,020 - INFO - Searching for: best hairdryers
+2025-04-06 17:34:19,147 - INFO - Scraping website: https://www.reddit.com/r/hairstylist/comments/1e3xq5o/best_blow_dryer/
+2025-04-06 17:34:20,740 - INFO - Saved data from https://www.reddit.com/r/hairstylist/comments/1e3xq5o/best_blow_dryer/
+2025-04-06 17:34:25,495 - INFO - Scraping website: https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 17:34:26,459 - INFO - Saved data from https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 17:34:30,827 - INFO - Scraping website: https://www.reddit.com/r/Wavyhair/comments/1bwjymt/best_hair_dryers_for_diffusing/
+2025-04-06 17:34:31,989 - INFO - Saved data from https://www.reddit.com/r/Wavyhair/comments/1bwjymt/best_hair_dryers_for_diffusing/
+2025-04-06 17:34:36,316 - INFO - Scraping website: https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 17:34:36,639 - INFO - Saved data from https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 17:34:41,442 - INFO - Scraping website: https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 17:34:42,759 - INFO - Saved data from https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 17:34:47,719 - INFO - Scraping website: https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 17:34:49,159 - INFO - Saved data from https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 17:34:53,436 - INFO - Scraping website: https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 17:34:54,439 - INFO - Saved data from https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 17:34:58,819 - INFO - Scraping website: https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 17:34:59,939 - INFO - Saved data from https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 17:34:59,940 - INFO - Completed scraping 8 websites for query: best hairdryers
+2025-04-06 17:40:34,172 - INFO - GoogleScraper initialized
+2025-04-06 17:40:34,172 - INFO - Starting scraping process for query: best hairdryers
+2025-04-06 17:40:34,172 - INFO - Searching for: best hairdryers
+2025-04-06 17:40:34,878 - INFO - Found 8 valid results after filtering excluded domains
+2025-04-06 17:40:38,916 - INFO - Scraping website: https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 17:40:40,155 - INFO - Saved data from https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 17:40:45,110 - INFO - Scraping website: https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 17:40:45,435 - INFO - Saved data from https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 17:40:49,520 - INFO - Scraping website: https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 17:40:50,424 - INFO - Saved data from https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 17:40:55,421 - INFO - Scraping website: https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 17:40:56,805 - INFO - Saved data from https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 17:41:00,886 - INFO - Scraping website: https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 17:41:01,844 - INFO - Saved data from https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 17:41:05,938 - INFO - Scraping website: https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 17:41:06,714 - INFO - Saved data from https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 17:41:11,537 - INFO - Scraping website: https://www.amazon.com/Best-Sellers-Hair-Dryers/zgbs/beauty/11058141
+2025-04-06 17:41:12,934 - INFO - Saved data from https://www.amazon.com/Best-Sellers-Hair-Dryers/zgbs/beauty/11058141
+2025-04-06 17:41:17,059 - INFO - Scraping website: https://nymag.com/strategist/article/best-hair-dryers.html
+2025-04-06 17:41:19,525 - INFO - Saved data from https://nymag.com/strategist/article/best-hair-dryers.html
+2025-04-06 17:41:19,526 - INFO - Completed scraping 8 websites for query: best hairdryers
+2025-04-06 17:43:40,380 - INFO - GoogleScraper initialized
+2025-04-06 17:43:40,380 - INFO - Starting scraping process for query: best hairdryers
+2025-04-06 17:43:40,380 - INFO - Searching for: best hairdryers
+2025-04-06 17:43:40,905 - INFO - Found 8 valid results after filtering excluded domains
+2025-04-06 17:43:45,300 - INFO - Scraping website: https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 17:47:28,143 - INFO - GoogleScraper initialized
+2025-04-06 17:47:28,143 - INFO - Starting scraping process for query: best hairdryers
+2025-04-06 17:47:28,143 - INFO - Searching for: best hairdryers
+2025-04-06 17:47:28,641 - INFO - Found 8 valid results after filtering excluded domains
+2025-04-06 17:47:33,255 - INFO - Scraping website: https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 17:47:34,490 - INFO - Saved data from https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 17:47:38,604 - INFO - Scraping website: https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 17:47:38,993 - INFO - Saved data from https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 17:47:43,523 - INFO - Scraping website: https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 17:47:44,440 - INFO - Saved data from https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 17:47:49,007 - INFO - Scraping website: https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 17:47:50,469 - INFO - Saved data from https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 17:47:55,033 - INFO - Scraping website: https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 17:47:55,989 - INFO - Saved data from https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 17:48:00,468 - INFO - Scraping website: https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 17:48:01,179 - INFO - Saved data from https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 17:48:05,280 - INFO - Scraping website: https://www.amazon.com/Best-Sellers-Hair-Dryers/zgbs/beauty/11058141
+2025-04-06 17:48:06,940 - INFO - Saved data from https://www.amazon.com/Best-Sellers-Hair-Dryers/zgbs/beauty/11058141
+2025-04-06 17:48:11,591 - INFO - Scraping website: https://nymag.com/strategist/article/best-hair-dryers.html
+2025-04-06 17:48:13,970 - INFO - Saved data from https://nymag.com/strategist/article/best-hair-dryers.html
+2025-04-06 17:48:13,970 - INFO - Completed scraping 8 websites for query: best hairdryers
+2025-04-06 20:52:05,483 - INFO - GoogleScraper initialized
+2025-04-06 20:52:05,483 - INFO - Starting scraping process for query: best hairdryers
+2025-04-06 20:52:05,483 - INFO - Searching for: best hairdryers
+2025-04-06 20:52:06,054 - INFO - Found 8 valid results after filtering excluded domains
+2025-04-06 20:52:10,860 - INFO - Scraping website: https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 20:52:12,087 - INFO - Saved data from https://www.goodhousekeeping.com/beauty-products/hair-dryers/g550/best-hair-dryers/
+2025-04-06 20:52:16,843 - INFO - Scraping website: https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 20:52:17,200 - INFO - Saved data from https://www.thesmallthingsblog.com/2024/03/dont-buy-a-new-blowdryer-until-you-read-this/
+2025-04-06 20:52:21,574 - INFO - Scraping website: https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 20:52:23,048 - INFO - Saved data from https://www.nytimes.com/wirecutter/reviews/the-best-hair-dryer/
+2025-04-06 20:52:27,220 - INFO - Scraping website: https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 20:52:28,719 - INFO - Saved data from https://www.allure.com/gallery/best-hair-dryers
+2025-04-06 20:52:33,230 - INFO - Scraping website: https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 20:52:34,227 - INFO - Saved data from https://www.byrdie.com/best-hair-dryers-8557739
+2025-04-06 20:52:38,856 - INFO - Scraping website: https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 20:52:40,227 - INFO - Saved data from https://thenewknew.com/best-hair-dryer-for-gray-hair/
+2025-04-06 20:52:44,369 - INFO - Scraping website: https://www.amazon.com/Best-Sellers-Hair-Dryers/zgbs/beauty/11058141
+2025-04-06 20:52:44,639 - ERROR - Error scraping https://www.amazon.com/Best-Sellers-Hair-Dryers/zgbs/beauty/11058141: 429 Client Error: Too Many Requests for url: https://www.amazon.com/Best-Sellers-Hair-Dryers/zgbs/beauty/11058141
+2025-04-06 20:52:49,121 - INFO - Scraping website: https://nymag.com/strategist/article/best-hair-dryers.html
+2025-04-06 20:52:51,727 - INFO - Saved data from https://nymag.com/strategist/article/best-hair-dryers.html
+2025-04-06 20:52:51,728 - INFO - Completed scraping 7 websites for query: best hairdryers
+2025-04-10 13:29:31,420 - INFO - GoogleScraper initialized
+2025-04-10 13:29:31,420 - INFO - Starting scraping process for query: best hair straighteners
+2025-04-10 13:29:31,420 - INFO - Searching for: best hair straighteners
+2025-04-10 13:29:31,994 - INFO - Found 8 valid results after filtering excluded domains
+2025-04-10 13:29:36,156 - INFO - Scraping website: https://www.forbes.com/sites/forbes-personal-shopper/article/best-hair-straightener/
+2025-04-10 13:29:38,922 - INFO - Saved data from https://www.forbes.com/sites/forbes-personal-shopper/article/best-hair-straightener/
+2025-04-10 13:29:43,496 - INFO - Scraping website: https://www.amazon.com/Best-Sellers-Hair-Straightening-Irons/zgbs/beauty/11058261
+2025-04-10 13:29:43,751 - ERROR - Error scraping https://www.amazon.com/Best-Sellers-Hair-Straightening-Irons/zgbs/beauty/11058261: 429 Client Error: Too Many Requests for url: https://www.amazon.com/Best-Sellers-Hair-Straightening-Irons/zgbs/beauty/11058261
+2025-04-10 13:29:48,281 - INFO - Scraping website: https://www.wired.com/gallery/best-hair-straighteners/
+2025-04-10 13:29:49,752 - INFO - Saved data from https://www.wired.com/gallery/best-hair-straighteners/
+2025-04-10 13:29:53,887 - INFO - Scraping website: https://www.goodhousekeeping.com/beauty/hair/g4903/best-hair-straighteners/
+2025-04-10 13:29:54,892 - INFO - Saved data from https://www.goodhousekeeping.com/beauty/hair/g4903/best-hair-straighteners/
+2025-04-10 13:29:59,566 - INFO - Scraping website: https://www.glamour.com/gallery/best-hair-straighteners-flat-irons
+2025-04-10 13:30:01,092 - INFO - Saved data from https://www.glamour.com/gallery/best-hair-straighteners-flat-irons
+2025-04-10 13:30:06,021 - INFO - Scraping website: https://www.theguardian.com/thefilter/2025/mar/18/best-hair-straighteners
+2025-04-10 13:30:06,522 - INFO - Saved data from https://www.theguardian.com/thefilter/2025/mar/18/best-hair-straighteners
+2025-04-10 13:30:11,211 - INFO - Scraping website: https://www.cosmopolitan.com/style-beauty/beauty/g12837010/best-hair-straightener-flat-iron/
+2025-04-10 13:30:12,262 - INFO - Saved data from https://www.cosmopolitan.com/style-beauty/beauty/g12837010/best-hair-straightener-flat-iron/
+2025-04-10 13:30:16,491 - INFO - Scraping website: https://www.telegraph.co.uk/recommended/beauty-style/best-hair-straighteners/
+2025-04-10 13:30:16,652 - ERROR - Error scraping https://www.telegraph.co.uk/recommended/beauty-style/best-hair-straighteners/: 403 Client Error: Forbidden for url: https://www.telegraph.co.uk/recommended/beauty-style/best-hair-straighteners/
+2025-04-10 13:30:16,652 - INFO - Completed scraping 6 websites for query: best hair straighteners
+2025-04-10 13:30:32,388 - INFO - GoogleScraper initialized
+2025-04-10 13:30:32,388 - INFO - Starting scraping process for query: best microwaves
+2025-04-10 13:30:32,388 - INFO - Searching for: best microwaves
+2025-04-10 13:30:32,957 - INFO - Found 8 valid results after filtering excluded domains
+2025-04-10 13:30:36,972 - INFO - Scraping website: https://www.consumerreports.org/appliances/microwave-ovens/best-microwaves-of-the-year-a4592238775/
+2025-04-10 13:30:39,162 - INFO - Saved data from https://www.consumerreports.org/appliances/microwave-ovens/best-microwaves-of-the-year-a4592238775/
+2025-04-10 13:30:43,639 - INFO - Scraping website: https://www.nytimes.com/wirecutter/reviews/best-microwave/
+2025-04-10 13:30:46,174 - INFO - Saved data from https://www.nytimes.com/wirecutter/reviews/best-microwave/
+2025-04-10 13:30:50,178 - INFO - Scraping website: https://www.bonappetit.com/story/best-countertop-microwaves
+2025-04-10 13:30:51,212 - INFO - Saved data from https://www.bonappetit.com/story/best-countertop-microwaves
+2025-04-10 13:30:55,779 - INFO - Scraping website: https://www.chicagotribune.com/2025/02/20/best-microwaves/
+2025-04-10 13:30:56,146 - ERROR - Error scraping https://www.chicagotribune.com/2025/02/20/best-microwaves/: 403 Client Error: Forbidden for url: https://www.chicagotribune.com/2025/02/20/best-microwaves/
+2025-04-10 13:31:00,591 - INFO - Scraping website: https://www.businessinsider.com/guides/kitchen/best-microwave
+2025-04-10 13:31:02,552 - INFO - Saved data from https://www.businessinsider.com/guides/kitchen/best-microwave
+2025-04-10 13:31:07,477 - INFO - Scraping website: https://www.bestbuy.com/site/home-appliances/microwaves/abcat0903000.c?id=abcat0903000
+2025-04-10 13:31:07,782 - INFO - Saved data from https://www.bestbuy.com/site/home-appliances/microwaves/abcat0903000.c?id=abcat0903000
+2025-04-10 13:31:12,673 - INFO - Scraping website: https://www.rtings.com/microwave
+2025-04-10 13:31:13,152 - INFO - Saved data from https://www.rtings.com/microwave
+2025-04-10 13:31:17,934 - INFO - Scraping website: https://www.seriouseats.com/best-microwaves-7501765
+2025-04-10 13:31:18,932 - INFO - Saved data from https://www.seriouseats.com/best-microwaves-7501765
+2025-04-10 13:31:18,933 - INFO - Completed scraping 7 websites for query: best microwaves
