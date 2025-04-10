@@ -1,8 +1,10 @@
 import pymongo
-from bson import ObjectId
+from bson.objectid import ObjectId
+import config
 import json
 from datetime import datetime
 
+# Add a JSON encoder for MongoDB objects
 class MongoJSONEncoder(json.JSONEncoder):
     def default(self, obj):
         if isinstance(obj, ObjectId):
@@ -12,74 +14,64 @@ class MongoJSONEncoder(json.JSONEncoder):
         return super(MongoJSONEncoder, self).default(obj)
 
 class DBHandler:
-    def __init__(self, mongo_uri, database_name):
-        self.client = pymongo.MongoClient(mongo_uri)
-        self.db = self.client[database_name]
-        self.raw_reviews = self.db["raw_reviews"]
-        self.product_reviews = self.db["product_reviews"]
-        self.comparison_reviews = self.db["comparison_reviews"]
-        self.search_queries = self.db["search_queries"]
-    
-    def get_all_search_queries(self):
-        """
-        Get all unique search queries from raw_reviews
-        """
-        return self.raw_reviews.distinct("search_query")
+    def __init__(self, mongo_uri=None, database_name=None):
+        # Use provided parameters or fall back to config values
+        self.client = pymongo.MongoClient(mongo_uri or config.MONGO_URI)
+        self.raw_db = self.client[database_name or config.DATABASE_NAME]
+        self.raw_collection = self.raw_db[config.COLLECTION_NAME]
+        
+        # Use the new database for generated reviews
+        self.reviews_db = self.client[config.REVIEWS_DATABASE_NAME]
+        self.product_reviews = self.reviews_db[config.PRODUCT_REVIEWS_COLLECTION]
+        self.comparison_reviews = self.reviews_db[config.COMPARISON_REVIEWS_COLLECTION]
     
     def get_raw_reviews_by_query(self, search_query):
         """
-        Get all raw reviews for a specific search query
+        Get raw reviews from the database by search query
         """
-        return list(self.raw_reviews.find({"search_query": search_query}))
+        return list(self.raw_collection.find({"search_query": search_query}))
     
     def save_product_review(self, product_data):
         """
         Save a product review to the database
         """
-        # Add timestamps
-        now = datetime.now()
-        product_data["createdAt"] = now
-        product_data["updatedAt"] = now
-        
-        # Insert or update the product review
-        result = self.product_reviews.update_one(
-            {"productName": product_data["productName"], "productSearchString": product_data["productSearchString"]},
-            {"$set": product_data},
-            upsert=True
-        )
-        
-        # Return the ID of the inserted/updated document
-        if result.upserted_id:
-            return result.upserted_id
+        # Check if product already exists
+        existing = self.product_reviews.find_one({"productName": product_data["productName"]})
+        if existing:
+            # Update existing product
+            product_data["_id"] = existing["_id"]
+            self.product_reviews.replace_one({"_id": existing["_id"]}, product_data)
+            return existing["_id"]
         else:
-            return self.product_reviews.find_one(
-                {"productName": product_data["productName"], "productSearchString": product_data["productSearchString"]}
-            )["_id"]
+            # Insert new product
+            result = self.product_reviews.insert_one(product_data)
+            return result.inserted_id
+    
+    def get_product_reviews_by_query(self, search_query):
+        """
+        Get product reviews from the database by search query
+        """
+        return list(self.product_reviews.find({"productSearchString": search_query}))
     
     def save_comparison_review(self, review_data):
         """
         Save a comparison review to the database
         """
-        # Add timestamps
-        now = datetime.now()
-        review_data["createdAt"] = now
-        review_data["updatedAt"] = now
-        
-        # Insert or update the comparison review
-        result = self.comparison_reviews.update_one(
-            {"reviewTitle": review_data["reviewTitle"]},
-            {"$set": review_data},
-            upsert=True
-        )
-        
-        # Return the ID of the inserted/updated document
-        if result.upserted_id:
-            return result.upserted_id
+        # Check if review already exists
+        existing = self.comparison_reviews.find_one({"slug": review_data["slug"]})
+        if existing:
+            # Update existing review
+            review_data["_id"] = existing["_id"]
+            self.comparison_reviews.replace_one({"_id": existing["_id"]}, review_data)
+            return existing["_id"]
         else:
-            return self.comparison_reviews.find_one({"reviewTitle": review_data["reviewTitle"]})["_id"]
+            # Insert new review
+            result = self.comparison_reviews.insert_one(review_data)
+            return result.inserted_id
     
-    def get_product_reviews_by_query(self, search_query):
+    def get_all_search_queries(self):
         """
-        Get all product reviews for a specific search query
+        Get all unique search queries from the raw reviews collection
         """
-        return list(self.product_reviews.find({"productSearchString": search_query}))
+        # Use distinct to get unique search queries
+        return self.raw_collection.distinct("search_query")

@@ -17,14 +17,25 @@ class ReviewGenerator:
         self.deepseek_client = DeepSeekClient(self.deepseek_api_key)
         self.db_handler = DBHandler(MONGO_URI, DATABASE_NAME)
     
-    def run(self):
+    def process_all_queries(self):
         """
         Process all search queries in the database
         """
-        search_queries = self.db_handler.get_all_search_queries()
-        for query in search_queries:
-            if query:  # Skip empty queries
-                self.process_search_query(query)
+        # Get all unique search queries from the raw reviews collection
+        all_queries = self.db_handler.get_all_search_queries()
+        
+        if not all_queries:
+            print("No search queries found in the database.")
+            return
+        
+        print(f"Found {len(all_queries)} unique search queries.")
+        
+        # Process each query
+        for query in all_queries:
+            print(f"\n{'='*50}")
+            print(f"Processing query: {query}")
+            print(f"{'='*50}")
+            self.process_search_query(query)
     
     def process_search_query(self, search_query):
         """
