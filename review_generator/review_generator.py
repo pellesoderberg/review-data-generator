@@ -32,6 +32,11 @@ class ReviewGenerator:
         
         # Process each query
         for query in all_queries:
+            # Check if reviews already exist for this query
+            if self.db_handler.has_existing_reviews(query):
+                print(f"Skipping query: {query} - Reviews already exist")
+                continue
+                
             print(f"\n{'='*50}")
             print(f"Processing query: {query}")
             print(f"{'='*50}")
@@ -252,7 +257,7 @@ class ReviewGenerator:
             5. The pros and cons MUST be specific to each product's actual features and performance, not generic.
             6. Each product MUST have COMPLETELY UNIQUE pros and cons - no two products should share the same pro or con.
             7. The priceRange field MUST be formatted as a range: "$X - $Y" where X is the lowest price and Y is the highest price you can find for this product in the data.
-               If only one price is available, use "$X - $X". If no specific price is available, estimate a reasonable range based on the product category and quality.
+               If only one price is available, use "$X - ($X + $2)". If no specific price is available, estimate a reasonable range based on the product category and quality.
             8. Assign rankings from 1-5 (with 1 being the highest ranked) based on overall quality and value.
             9. The review field should be around 250 words - detailed enough to be informative but concise.
             10. Do NOT mention who created the review or include phrases like "our analysis", "we found", "our team", etc. Focus solely on the product's features, performance, and benefits.
@@ -265,7 +270,7 @@ class ReviewGenerator:
             print("Prompt prepared, sending to DeepSeek API...")
             
             # Generate content with increased max_tokens to accommodate five products
-            response = self.deepseek_client.generate_content(prompt, max_tokens=6000)
+            response = self.deepseek_client.generate_content(prompt, max_tokens=7000)
             
             if response:
                 print(f"Received response from DeepSeek, length: {len(response)} characters")
@@ -326,7 +331,13 @@ class ReviewGenerator:
                                     product_data["shortSummary"] = re.sub(r'(?i)\b(we|our team|our analysis|we found|our review|our testing|we tested|we analyzed)\b', 
                                                                      'analysis', product_data["shortSummary"])
                                     product_data["shortSummary"] = re.sub(r'(?i)\bProduct-Review-Crew\b', 'Experts', product_data["shortSummary"])
-                        
+
+                        # Add timestamp for when the review was created
+                        product_data["createdAt"] = datetime.now().isoformat()
+                                
+                        # Add static reseller field
+                        product_data["reseller"] = "Amazon.com"
+                                
                         # Save to database
                         product_id = self.db_handler.save_product_review(product_data)
                         product_ids.append(product_id)
@@ -505,7 +516,7 @@ class ReviewGenerator:
         """
         
         # Generate content with increased max_tokens
-        response = self.deepseek_client.generate_content(prompt, max_tokens=6000)
+        response = self.deepseek_client.generate_content(prompt, max_tokens=7000)
         
         if response:
             # Extract comparison review from the response
@@ -615,6 +626,9 @@ class ReviewGenerator:
                     else:
                         # If products array is missing, create it with all product IDs
                         comparison_review["products"] = [{"productId": str(pid)} for pid in product_ids]
+                    
+                    # Add timestamp for when the comparison review was created
+                    comparison_review["createdAt"] = datetime.now().isoformat()
                     
                     # Save to database
                     review_id = self.db_handler.save_comparison_review(comparison_review)

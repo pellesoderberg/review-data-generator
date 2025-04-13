@@ -128,3 +128,24 @@
 2025-04-10 13:31:17,934 - INFO - Scraping website: https://www.seriouseats.com/best-microwaves-7501765
 2025-04-10 13:31:18,932 - INFO - Saved data from https://www.seriouseats.com/best-microwaves-7501765
 2025-04-10 13:31:18,933 - INFO - Completed scraping 7 websites for query: best microwaves
+2025-04-10 20:04:38,880 - INFO - GoogleScraper initialized
+2025-04-10 20:04:38,881 - INFO - Starting scraping process for query: best hair conditioner
+2025-04-10 20:04:38,881 - INFO - Searching for: best hair conditioner
+2025-04-10 20:04:39,492 - INFO - Found 8 valid results after filtering excluded domains
+2025-04-10 20:04:44,158 - INFO - Scraping website: https://www.amazon.com/Best-Sellers-Hair-Conditioner/zgbs/beauty/11057251
+2025-04-10 20:04:46,501 - INFO - Saved data from https://www.amazon.com/Best-Sellers-Hair-Conditioner/zgbs/beauty/11057251
+2025-04-10 20:04:50,844 - INFO - Scraping website: https://www.byrdie.com/best-conditioners-4584116
+2025-04-10 20:04:52,101 - INFO - Saved data from https://www.byrdie.com/best-conditioners-4584116
+2025-04-10 20:04:56,916 - INFO - Scraping website: https://www.self.com/story/best-conditioners-for-thinning-hair
+2025-04-10 20:04:58,221 - INFO - Saved data from https://www.self.com/story/best-conditioners-for-thinning-hair
+2025-04-10 20:05:02,311 - INFO - Scraping website: https://www.goodhousekeeping.com/uk/product-reviews/fashion-and-beauty/g61740113/best-conditioner/
+2025-04-10 20:05:03,191 - INFO - Saved data from https://www.goodhousekeeping.com/uk/product-reviews/fashion-and-beauty/g61740113/best-conditioner/
+2025-04-10 20:05:07,568 - INFO - Scraping website: https://www.oribe.com/collections/bestsellers
+2025-04-10 20:05:09,001 - INFO - Saved data from https://www.oribe.com/collections/bestsellers
+2025-04-10 20:05:13,439 - INFO - Scraping website: https://nymag.com/strategist/article/best-conditioners.html
+2025-04-10 20:05:15,942 - INFO - Saved data from https://nymag.com/strategist/article/best-conditioners.html
+2025-04-10 20:05:20,468 - INFO - Scraping website: https://eva-nyc.com/collections/conditioner
+2025-04-10 20:05:21,761 - INFO - Saved data from https://eva-nyc.com/collections/conditioner
+2025-04-10 20:05:26,226 - INFO - Scraping website: https://olaplex.com/collections/best-seller-us
+2025-04-10 20:05:27,301 - INFO - Saved data from https://olaplex.com/collections/best-seller-us
+2025-04-10 20:05:27,302 - INFO - Completed scraping 8 websites for query: best hair conditioner

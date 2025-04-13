@@ -9,8 +9,13 @@ def main():
     if len(sys.argv) > 1:
         # Process the specific query
         search_query = sys.argv[1]
-        print(f"Generating reviews for: {search_query}")
-        generator.process_search_query(search_query)
+        
+        # Check if reviews already exist for this query
+        if generator.db_handler.has_existing_reviews(search_query):
+            print(f"Reviews already exist for '{search_query}'. Skipping generation.")
+        else:
+            print(f"Generating reviews for: {search_query}")
+            generator.process_search_query(search_query)
     else:
         # Process all queries in the database
         print("No specific query provided. Generating reviews for all queries in the database.")

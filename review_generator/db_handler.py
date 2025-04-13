@@ -75,3 +75,11 @@ class DBHandler:
         """
         # Use distinct to get unique search queries
         return self.raw_collection.distinct("search_query")
+    
+    def has_existing_reviews(self, search_query):
+        """
+        Check if product reviews already exist for a search query
+        """
+        # Check if there are any product reviews for this query
+        existing_reviews = self.product_reviews.find_one({"productSearchString": search_query})
+        return existing_reviews is not None
