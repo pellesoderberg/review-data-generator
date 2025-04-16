@@ -50,7 +50,7 @@ class ReviewGenerator:
         
         # Get raw reviews for this search query
         raw_reviews = self.db_handler.get_raw_reviews_by_query(search_query)
-        
+
         if not raw_reviews:
             print(f"No raw reviews found for query: {search_query}")
             return
@@ -85,39 +85,42 @@ class ReviewGenerator:
             # Instead of sending the full data, extract only the most important fields
             simplified_chunk = []
             for item in chunk:
+                # Extract content from paragraphs and headings (which is how scraper.py saves content)
+                paragraphs = item.get("paragraphs", [])
+                headings = item.get("headings", [])
+                
+                # Combine headings and paragraphs to create content
+                content = ""
+                if headings:
+                    content += "\n".join(headings) + "\n\n"
+                if paragraphs:
+                    content += "\n".join(paragraphs)
+                
                 # Extract only essential fields to reduce token count
                 simplified_item = {
                     "title": item.get("title", ""),
-                    "content": self._extract_summary(item.get("content", ""), 1000),  # Limit content length
+                    "content": (content),  # Limit content length
+                    "description": item.get("search_snippet", ""),  # Use search_snippet as description
                     "url": item.get("url", ""),
-                    "source": item.get("source", "")
+                    "source": item.get("domain", "")  # Use domain as source
                 }
+                print(f"Simplified item title: {simplified_item['title']}")
+                print(f"Content length: {len(simplified_item['content'])} characters")
                 simplified_chunk.append(simplified_item)
             
             chunks.append(json.dumps(simplified_chunk, cls=MongoJSONEncoder))
         
         return chunks
     
-    def _extract_summary(self, text, max_length=1000):
+    def _extract_summary(self, text):
         """
         Extract a summary of the text to reduce token count
         """
         if not text:
             return ""
         
-        # If text is already short enough, return it as is
-        if len(text) <= max_length:
-            return text
-        
         # Otherwise, take the first part of the text
-        summary = text[:max_length]
-        
-        # Try to find a good breaking point
-        good_breaks = [". ", ".\n", "! ", "!\n", "? ", "?\n", "\n\n"]
-        for break_point in good_breaks:
-            last_good_break = summary.rfind(break_point)
-            if last_good_break > max_length * 0.75:  # If we can find a break point in the last quarter
-                return summary[:last_good_break + len(break_point)]
+        summary = text
         
         return summary
     
@@ -158,10 +161,11 @@ class ReviewGenerator:
             for item in all_data:
                 simplified_item = {
                     "title": item.get("title", ""),
-                    "content_summary": self._extract_summary(item.get("content", ""), 500),
+                    "content_summary": self._extract_summary(item.get("content", "")),
                     "url": item.get("url", ""),
                     "source": item.get("source", ""),
                     # Extract any price information if available
+                    "description": item.get("description", ""),
                     "price": item.get("price", ""),
                     "price_range": item.get("price_range", "")
                 }
@@ -215,7 +219,7 @@ class ReviewGenerator:
                 break
         
         product_ids = []
-        
+        print(f"{all_data_json} aa")
         # Create a prompt that explicitly requests five different products with unique awards
         try:
             prompt = f"""
@@ -226,6 +230,7 @@ class ReviewGenerator:
             Each product must be different and have a unique, specific award assigned that highlights its key strength or use case.
             Examples of awards: "Best Overall", "Best Premium", "Best Affordable", "Good performance in rain", "Best Compact", "Best Battery Life", etc.
             
+            Based on the data you will create a review around 1500 characters long, with a short summary of around 150 characters. For each product.
             Here's the data:
             {all_data_json}
             
@@ -243,8 +248,8 @@ class ReviewGenerator:
               "award": "Specific award that highlights this product's key strength",
               "pros": ["Pro1", "Pro2", "Pro3"],
               "cons": ["Con1", "Con2", "Con3"],
-              "shortSummary": "Brief summary",
-              "review": "Approximately 250-word detailed review. Keep the review close to 250 words",
+              "shortSummary": "Brief summary, around 150 characters.",
+              "review": "Approximately 1500 characters detailed review.",
               "productSearchString": "{search_query}"
             }}
             PRODUCT_REVIEW_END
@@ -259,18 +264,15 @@ class ReviewGenerator:
             7. The priceRange field MUST be formatted as a range: "$X - $Y" where X is the lowest price and Y is the highest price you can find for this product in the data.
                If only one price is available, use "$X - ($X + $2)". If no specific price is available, estimate a reasonable range based on the product category and quality.
             8. Assign rankings from 1-5 (with 1 being the highest ranked) based on overall quality and value.
-            9. The review field should be around 250 words - detailed enough to be informative but concise.
+            9. The review field should be around 1500 characters - detailed enough to be informative but concise.
             10. Do NOT mention who created the review or include phrases like "our analysis", "we found", "our team", etc. Focus solely on the product's features, performance, and benefits.
             11. Write in third person objective style. Avoid first person pronouns like "we", "our", "us".
-
-            Warning:
-            1. The product review can not be shorter than 200 words. That means that the review field should have reviews longer than 200 words.
             """
             
             print("Prompt prepared, sending to DeepSeek API...")
             
             # Generate content with increased max_tokens to accommodate five products
-            response = self.deepseek_client.generate_content(prompt, max_tokens=7000)
+            response = self.deepseek_client.generate_content(prompt, max_tokens=8000)
             
             if response:
                 print(f"Received response from DeepSeek, length: {len(response)} characters")
@@ -316,10 +318,7 @@ class ReviewGenerator:
                         
                         # Ensure exactly three pros and cons
                         # ... existing pros and cons validation code ...
-                        
-                        # Ensure review is approximately 200 words
-                                if "review" in product_data:
-                                    product_data["review"] = self._validate_word_count(product_data["review"], 200, 20)
+            
                                     
                                 # Remove any mentions of who created the review
                                 if "review" in product_data:
@@ -516,7 +515,7 @@ class ReviewGenerator:
         """
         
         # Generate content with increased max_tokens
-        response = self.deepseek_client.generate_content(prompt, max_tokens=7000)
+        response = self.deepseek_client.generate_content(prompt, max_tokens=8000)
         
         if response:
             # Extract comparison review from the response

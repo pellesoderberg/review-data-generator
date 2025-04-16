@@ -11,16 +11,23 @@ class DeepSeekClient:
             "Authorization": f"Bearer {api_key}"
         }
     
-    def generate_content(self, prompt, max_tokens=2000, model="deepseek-chat", temperature=0.7, max_retries=3):
+    def generate_content(self, prompt, max_tokens=8000, model="deepseek-chat", temperature=0.7, max_retries=3):
         """
         Generate content using DeepSeek API
         """
         print(f"Generating content with DeepSeek API (model: {model}, max_tokens: {max_tokens})")
         
+        # Add instruction about product name importance
+        enhanced_prompt = (
+            "IMPORTANT INSTRUCTION: When identifying products, you MUST use their complete and accurate names exactly as provided in the data. "
+            "Do not abbreviate, shorten, or modify product names in any way. "
+            "The full and correct product name is critical for proper identification and must be preserved exactly as given in the source data.\n\n" + prompt
+        )
+        
         data = {
             "model": model,
             "messages": [
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": enhanced_prompt}
             ],
             "max_tokens": max_tokens,
             "temperature": temperature
